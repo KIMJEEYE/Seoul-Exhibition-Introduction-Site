@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>author</title>
+    <style>
+        header {
+            text-align: left;
+            color: white;
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        header a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        body:before {
+            content: "";
+            height: 100%;
+            width: 0;
+            float: left;
+            visibility: hidden;
+        }
+
+
+        footer {
+            position: relative;
+            background-color: black;
+            color: white;
+            display: block;
+            bottom: -50%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin-top: auto;
+            height: 30%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 10px 0;
+            font-size: 85%;
+            z-index: 10;
+        }
+
+        #body-content {
+            margin-bottom: 70px;
+            padding-top: 10%;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        video {
+            object-fit: fill;
+            padding-bottom: 3%;
+        }
+
+        h2 {
+            color: rgb(57, 57, 57);
+            margin-top: 1%;
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 70px;
+            width: 90%;
+            background-color: rgb(211, 209, 209);
+        }
+
+        input[name="query"] {
+            width: 30%;
+            font-size: 16px;
+            padding: 10px;
+            height: 17px;
+        }
+
+        button[type="submit"] {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .news {
+            margin-top: 0;
+            table-layout: fixed;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+
+        .news th,
+        td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+        }
+
+        .news th:first-of-type {
+            width: 8%;
+        }
+
+        .news td:nth-child(2) {
+            text-align: left;
+        }
+
+        .new th:nth-child(3),
+        th:nth-child(4) {
+            width: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="padding-left: 10%; "><a href="main.html">AGS</a></h1>
+        <p style="padding-left: 10%;">Art Gallery in Seoul
+            <a href="gallery.html" style="padding-left: 53%;">전시</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
+                href="author.html">작가</a> &nbsp; &nbsp; &nbsp; <a href="artNews.html">미술계소식</a>
+        </p>
+    </header>
+    <div id="body-content">
+        <video src="My_Video.mp4"  autoplay muted loop width="90%" height="200px"></video>
+
+        <h2>공지사항</h2>
+
+        <div class="search">
+            <input type="text" name="query" placeholder="전시명 입력">
+            <button type="submit">검색</button>
+        </div>
+
+
+        <table class="news">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
+                <th>조회</th>
+            </tr>
+            <tr>
+                <td>[공지]</td>
+                <td>미술계소식 공지사항</td>
+                <td>19.07.28</td>
+                <td>3,577</td>
+            </tr>
+            <tr>
+                <td>626</td>
+                <td>소 잡는 백정이라도… 인권의 무게는 같소이다</td>
+                <td>23.06.07</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>625</td>
+                <td>조각가 권진규, 50년 만에 찾은 '영원한 집'</td>
+                <td>23.06.04</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>624</td>
+                <td>갤러리K-공자미술관, 올 가을 두번째 한중 합동 전시 예정</td>
+                <td>23.06.02</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>623</td>
+                <td>문 전대통령, 한라산 붉은 겨우살이에 빠졌다</td>
+                <td>23.06.01</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>622</td>
+                <td>마지막 지킨 3.2㎝ ‘피에타 토우’… 신라인의 영원한 작별을 엿보다</td>
+                <td>23.05.30</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td>621</td>
+                <td>한국화는 고리타분하지 않다</td>
+                <td>23.05.29</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>620</td>
+                <td>오페라 갤러리, 도산공원 이전 5주년 기념 리뉴얼 완료</td>
+                <td>23.05.26</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>619</td>
+                <td>대전시립미술관, 아카이브 구축 지원 사업 선정</td>
+                <td>23.05.35</td>
+                <td>58</td>
+            </tr>
+            <tr>
+                <td>618</td>
+                <td>흙 속에서 천년, 신라의 부처를 만나다</td>
+                <td>23.05.25</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>617</td>
+                <td>민원인들을 위하여… 제주도청 협업카페·민원실 문화공간 떴다</td>
+                <td>23.05.23</td>
+                <td>47</td>
+            </tr>
+        </table>
+
+        <br />
+    </div>
+    <footer class="footer">
+        <p style="text-align: right;">Instagram &nbsp; Facebook &nbsp; Twitter</p>
+        <p style=" font-family: Impact, Haettenschweiler, 'Arial Narrow Bold' , sans-serif;">ARS</p>
+        <hr>
+        COUSTOMER SERVICE <br />
+        02-0000-0000<br /><br />
+        <small>평일 AM 9:00 ~ PM 06:00(주말, 공휴일 휴무)</small><br />
+        <small>email: </small>*******@gmail.com
+        Online Inquiry<br /><br />
+        <small>궁금하신사항은문의글에남겨주시면<br />
+            빠른답변드리겠습니다.</small>
+        <small>(주)***사<br /> 대표: 김00 <br /> 사업자번호: 0000-00-0000 <br /> 주소: 서울특별시 00구 000로 000 <br /> 대표전화:
+            02-0000-0000 <br /><br />
+            회사 소개 고객센터 개인정보처리방침 이용약관
+        </small>
+    </footer>
+</body>
+
+</html>

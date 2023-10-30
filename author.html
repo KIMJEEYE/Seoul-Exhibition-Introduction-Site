@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gallery</title>
+    <style>
+        header {
+            text-align: left;
+            color: white;
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+
+        }
+
+        header a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        body:before {
+            content: "";
+            height: 100%;
+            width: 0;
+            float: left;
+            visibility: hidden;
+        }
+
+
+        footer {
+            position: relative;
+            background-color: black;
+            color: white;
+            display: block;
+            bottom: -50%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin-top: auto;
+            height: 30%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 10px 0;
+            font-size: 85%;
+            z-index: 10;
+        }
+
+        #body-content {
+            margin-bottom: 70px;
+            padding-top: 10%;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+
+        h1 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #bar li:nth-child(-n+8) {
+            font-size: medium;
+        }
+
+        #bar ul {
+            width: 100%;
+            margin-top: 5%;
+            padding: 0 3%;
+            list-style: none;
+            display: flex;
+        }
+
+        .bar li {
+            display: inline-block;
+        }
+
+        .bar li:first-child {
+            margin-right: auto;
+        }
+
+        .search1{
+            display: flex;
+            align-items: center;
+        }
+
+        .search1 input[name="query"] {
+            margin-left: 70%;
+            width: 20%;
+            font-size: 12px;
+            padding: 10px;
+            height: 12px;
+        }
+
+        .search1 button[type="submit"] {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .search2 {
+            margin-top: 2%;
+            text-align: left;
+            display: flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+
+        .author {
+            text-align: left;
+            margin: 0 auto;
+            table-layout: fixed;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 6%;
+        }
+
+        .author td {
+            padding: 0.5% 2% 0.5% 2%;
+            width: 90%;
+        }
+
+        .author p {
+            font-size: smaller;
+            text-align: justify;
+        }
+
+        .author img {
+            border-radius: 10px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            for (var i = 0; i < 8; i++) {
+                var image = document.getElementById(`image${i}`);
+                image.width = 300;
+                image.height = 300;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 style="padding-left: 10%; "><a href="main.html">AGS</a></h1>
+        <p style="padding-left: 10%;">Art Gallery in Seoul
+            <a href="gallery.html" style="padding-left: 53%;">전시</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
+                href="author.html">작가</a> &nbsp; &nbsp; &nbsp; <a href="artNews.html">미술계소식</a>
+        </p>
+    </header>
+
+    <div id="body-content">
+        <div id="bar">
+            <ul>
+                <li><strong>전체 |</strong></li>
+                <li>회화(서양화) |</li>
+                <li>회화(동양화) |</li>
+                <li>조각/설치 |</li>
+                <li>사진/영상 |</li>
+                <li>도예/공예 |</li>
+                <li>판화 |</li>
+                <li>기타 </li>
+            </ul>
+        </div>
+
+        <div class="search1">
+            <input type="text" name="query" placeholder="전시명 입력">
+            <button type="submit">검색</button>
+        </div>
+
+        <fieldset class="search2">
+            <p> <strong>전체</strong> | ㄱ | ㄴ | ㄷ | ㄹ | ㅁ | ㅂ | ㅅ | ㅇ | ㅈ | ㅊ | ㅋ | ㅍ | ㅌ | ㅎ</p>
+        </fieldset>
+
+        <br />
+        <table class="author" width="100%">
+            <tr>
+
+                <td><img id="image0"
+                        src="https://i.namu.wiki/i/dyTW7lbomZIZEMQXX06wCD4w7iZ_nCSrkYsR5j-sAQ4dywp3D4TiVeUuLxOcDX7r5ghytVa71tPuAURkHPbGconffuQSDZscRNfZzTo4YiMGM3C5c95yLBcy-GP68quXDn2ZSNf2MJjQt0jTk1GxFg.jpg">
+                </td>
+
+
+                <td><img id="image1"
+                        src="https://i.namu.wiki/i/SR_mWQ9zIPTvv6h-eUThPKuRyeIUdTWYNEt-vZNKTw6SgZnbUT-7M2Q6bkK1F6O7tiMnEys9OrGbD9rp2uvOp0yJjDLHu0iqaSU91eNyJm82UqLn0XgqX4EakQVKfdswPvX91sncANFK5YM4Gkni3g.webp">
+                </td>
+
+                <td><img id="image2"
+                        src="https://i.namu.wiki/i/RBeKmRKCMPyFQNCSBNoo9f_o4hfnBxg9vB4vKFFO5YK3U15s-dt5Db3W3P7A6gXeQKgnTleql4qFZ3Gk5H7_kzdwkZ5O186pMEocOvPrQ9JAR-fqY1T5MQ0645kVeCK5GV8BS2-xw27x0XXbhX40HA.jpg">
+                </td>
+
+
+                <td><img id="image3"
+                        src="https://i.namu.wiki/i/v5Qn10O4bWIfiqpoRcSFKd6xOUEkERnUlCCgYEd9XZakVZS5drkS5qfRbnQQbZl6drEoAfmh294Es__w6IhjcCrv111152F0aKsoAd_GHgEsV2Hc_ziZkmPNaKTlpnBQ-7s2b0RWUS_97NERVu20nw.webp">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>빈센트 발럼 반 고흐<br />
+                    Vincent Willem van Gogh <br />
+                    <small>출생: 1853-03-30 <br /></small>
+
+                    <p>내가 확신을 가지고 모든 것을 안다고 말할 수는 없다. 하지만 지도에서 도시나 마을을 가리키는 검은 점을 보면 꿈을 꾸게 되는 것처럼, 별이 반짝이는
+                        밤하늘은 늘 나를 꿈꾸게
+                        한다.
+                        - 고흐의 편지 中.</p>
+
+                </td>
+
+                <td>살바도르 도밍고 펠리파 자신토 달리 이 도메네크<br />
+                    Salvador Domingo Felipe Jacinto Dalí i Domènech <br />
+                    <small>출생: 1989-01-23 <br /></small>
+
+                    <p>단순함이야 말로 궁극의 정교함이다.</p>
+
+                </td>
+
+                <td>레오나르도 디세르 피에로 다빈치<br />
+                    Leonardo di ser Piero da Vinci <br />
+                    <small>출생: 1452-04-15 <br /></small>
+
+                    <p>내가 확신을 가지고 모든 것을 안다고 말할 수는 없다. 하지만 지도에서 도시나 마을을 가리키는 검은 점을 보면 꿈을 꾸게 되는 것처럼, 별이 반짝이는
+                        밤하늘은 늘 나를 꿈꾸게
+                        한다.
+                        - 고흐의 편지 中.</p>
+
+                </td>
+
+                <td>뱅크시 (본명: 불명)<br />
+                    Banksy <br />
+                    <small>출생: 1974년 추정 <br /></small>
+
+                    <p>-</p>
+
+                </td>
+            <tr>
+
+                <td><img id="image4"
+                        src="https://i.namu.wiki/i/qMfSM_mZGVzAWR0OsCUDYdxi2VXw56qtyi-NDWh9Fg6GIh7m5DCoO3ku04e4xByeJKIi4q0ayZke4ajidxPt77yvrNNC8b1yY7vHF_giYgVp15UcvdMQ_KyKBrxoTr0KvwxVDtCCMpuQMcv8CvNVqg.webp">
+                </td>
+
+
+                <td><img id="image5"
+                        src="https://i.namu.wiki/i/4Wus5OpjlOHMk41BK_UhWSe-Op8IloBcPYogldpjcdPuwzSR4SPBBiklsbMqVdyUnvxmJuSLI6MsVMxdOqy-FrJW3iLR3zIpawna261_YHULqI6rDOQQNgwV2tmtkK6kbUzIkN5zKeFtm_xKUf3m-A.webp">
+                </td>
+
+                <td><img id="image6"
+                        src="https://i.namu.wiki/i/x4gmXEghyxdWTahI2dLU-jyCkQjggB6APenea4JTixudTpcIKPJTXzC8E8KNn6DKL9GNxsMMoSrKuQfSw8e7Xqv_EX7VXq6UAoo6afdnv8VQGCKVGda-330dYJGY4gdq0U9RZniTtU1pexxhJJhZiA.webp">
+                </td>
+
+
+                <td><img id="image7"
+                        src="https://i.namu.wiki/i/-n73rhxoIotYwLRzeg5j1CxzQfyceuAsBJTzLhXytIEUKMyYoSdScyDFbGFndmAApOdpzLaIPFE-W5LR01U5t0GYXYIJb0QIMH5OyEozBCRooV_7O1oL1tSTj5I1OhOHHZ-yYwTQgZaNEtROG01w9Q.jpg">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>백남준<br />
+                    Paik Nam-june <br />
+                    <small>출생: 1932-07-20 <br /></small>
+
+                    <p>문화도 경제처럼 수입보다는 수출이 필요해요. 나는 한국의 문화를 수출하기 위해서 세상을 떠도는 문화 상인입니다.</p>
+
+                </td>
+
+                <td>박수근<br />
+                    Park Soo-Keun <br />
+                    <small>출생: 1914-02-21 <br /></small>
+
+                    <p>-</p>
+
+                </td>
+
+                <td>나혜석<br />
+                    Na Hyesok <br />
+                    <small>출생: 1896-04-28 <br /></small>
+
+                    <p>-</p>
+
+                </td>
+
+                <td>마르셀 뒤샹<br />
+                    Marcel Duchamp <br />
+                    <small>출생: 1887-07-28 <br /></small>
+
+                    <p>예술가는 영혼으로 자신을 표현해야 하며, 예술 작품은 그 영혼과 하나가 되어야 한다.</p>
+
+                </td>
+        </table>
+        <br />
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: right;">Instagram &nbsp; Facebook &nbsp; Twitter</p>
+        <p style=" font-family: Impact, Haettenschweiler, 'Arial Narrow Bold' , sans-serif;">ARS</p>
+        <hr>
+        COUSTOMER SERVICE <br />
+        02-0000-0000<br /><br />
+        <small>평일 AM 9:00 ~ PM 06:00(주말, 공휴일 휴무)</small><br />
+        <small>email: </small>*******@gmail.com
+        Online Inquiry<br /><br />
+        <small>궁금하신사항은문의글에남겨주시면<br />
+            빠른답변드리겠습니다.</small>
+        <small>(주)***사<br /> 대표: 김00 <br /> 사업자번호: 0000-00-0000 <br /> 주소: 서울특별시 00구 000로 000 <br /> 대표전화:
+            02-0000-0000 <br /><br />
+            회사 소개 고객센터 개인정보처리방침 이용약관
+        </small>
+    </footer>
+</body>
+
+</html>

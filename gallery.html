@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gallery</title>
+    <style>
+        header {
+            text-align: left;
+            color: white;
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        header a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        body:before {
+            content: "";
+            height: 100%;
+            width: 0;
+            float: left;
+            visibility: hidden;
+        }
+
+        footer {
+            position: relative;
+            background-color: black;
+            color: white;
+            display: block;
+            bottom: -50%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin-top: auto;
+            height: 30%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 10px 0;
+            font-size: 85%;
+            z-index: 10;
+        }
+
+        #body-content {
+            margin-bottom: 70px;
+            padding-top: 10%;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+
+        h1 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #bar ul {
+            margin-top: 5%;
+            padding: 0 3%;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        #bar li {
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        #bar li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 70px;
+            width: 90%;
+            background-color: black;
+        }
+
+        input[type="date"] {
+            font-size: 12px;
+            padding: 10px;
+            height: 14px;
+            margin-right: 5px;
+            background-color: #fff;
+        }
+
+        select {
+            font-size: 12px;
+            padding: 10px;
+            height: 35px;
+            margin-right: 5px;
+            background-color: #fff;
+        }
+
+        input[name="query"] {
+            width: 30%;
+            font-size: 16px;
+            padding: 10px;
+            height: 12px;
+        }
+
+        button[type="submit"] {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            table-layout: fixed;
+            margin-top: 2%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10%;
+        }
+
+        .gallery-item {
+            width: 45%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            padding-left: 2%;
+            text-align: left;
+            border-radius: 10px;
+            margin-bottom: 2%;
+            justify-content: space-between;
+        }
+
+        .gallery-item:last-child {
+            margin-right: 0;
+        }
+
+        .gallery-container fieldset {
+            background-color: rgb(211, 209, 209);
+            text-decoration: none;
+            border: none;
+        }
+
+        .gallery-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .gallery-item table td:not(:first-child) {
+            padding-left: 10%;
+            width: 500px
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            for (var i = 0; i < 4; i++) {
+                var image = document.getElementById(`image${i}`);
+                image.width = 200;
+                image.height = 200;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 style="padding-left: 10%; "><a href="main.html">AGS</a></h1>
+        <p style="padding-left: 10%;">Art Gallery in Seoul
+            <a href="gallery.html" style="padding-left: 53%;">전시</a> &nbsp; &nbsp; &nbsp; &nbsp;<a
+                href="author.html">작가</a> &nbsp; &nbsp; &nbsp; <a href="artNews.html">미술계소식</a>
+        </p>
+    </header>
+    <div id="body-content">
+        <div id="bar">
+            <ul>
+                <li><strong>현재 전시</strong></a></li>
+                <li><strong>예정전시</strong></li>
+                <li><strong>지난전시</strong></li>
+                <li><strong>추천전시</strong></li>
+                <li><strong>전체보기</strong></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <label for="date">
+                <input type="date" id="date" max="2040-12-31" min="2015-01-01" value="">
+            </label>
+            <select>
+                <option disabled selected>장르 선택</option>
+                <option>회화(서양화)</option>
+                <option>회화(동양화)</option>
+                <option>조각/설치</option>
+                <option>사진/영상</option>
+                <option>도예/공예</option>
+                <option>판화</option>
+                <option>기타</option>
+            </select>
+            <input type="text" name="query" placeholder="전시명 입력">
+            <button type="submit">검색</button>
+        </div>
+        <br />
+
+        <div class="gallery-container">
+            <fieldset class="gallery-item">
+                <details>
+                    <summary>
+                        <table>
+                            <tr>
+                                <td><img id="image0"
+                                        src="https://www.galleryjang.com/app/dubu_board/docs/imgs/a/lg_a16856013557947_%ED%95%98%EB%8A%98%EB%B0%94%EB%9D%BC%EA%B8%B0_2106%2C_116.8x80.3cm%2C_mixed_media_on_canvas%2C_2021.jpg">
+                                </td>
+
+                                <td>윤경 초대전 "하늘바라기"<br />
+                                    - <br />
+                                    <small>윤경 <br />
+                                        장은선갤러리 <br />
+
+                                        2023-06-07 ~ 2023-06-17
+                                    </small>
+                                </td>
+                            </tr>
+                        </table>
+                    </summary>
+                    <table>
+                        <tr>
+                            <td>작가</td>
+                            <td>윤경</td>
+                        </tr>
+                        <tr>
+                            <td>장소</td>
+                            <td>장은선갤러리</td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td>서울 종로구 율곡로6길 13-3(운니동)</td>
+                        </tr>
+                        <tr>
+                            <td>연락처</td>
+                            <td>02-730-3533</td>
+                        </tr>
+                        <tr>
+                            <td>홈페이지</td>
+                            <td><a href="http://www.galleryjang.com">http://www.galleryjang.com</td>
+                        </tr>
+                    </table>
+                    <hr>
+                    갤러리 가기<br />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.082120770971!2d126.9896583!3d37.5766839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2db9ab072cf%3A0x1797cbd5cdc9cf46!2z7ISc7Jq47Yq567OE7IucIOyiheuhnOq1rCDsnKjqs6HroZw26ri4IDEzLTM!5e0!3m2!1sko!2skr!4v1686192270237!5m2!1sko!2skr"
+                        width="97%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </details>
+            </fieldset>
+
+
+
+            <fieldset class="gallery-item">
+                <details>
+                    <summary>
+                        <table>
+                            <tr>
+                                <td><img id="image1"
+                                        src="https://static.wixstatic.com/media/b4c224_be8a214982e24278baaa1142df2b2d67~mv2.png/v1/fill/w_1460,h_2064,al_c,q_95,usm_0.66_1.00_0.01,enc_auto/%EA%B0%95%EB%A6%AC%EB%82%98%20%ED%8F%AC%EC%8A%A4%ED%84%B0%EB%8C%80%EC%A7%80%201_3x.png">
+                                </td>
+                                <td>
+                                    <p>강리라 개인전&lt;아모르, 아모르 Amor,Amor&gt;<br />
+                                        Kang Rina solo exhibition <br />
+                                        강리라 <br />
+                                        토포하우스 <br>
+                                        2023-05-31 ~ 2023-06-19</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </summary>
+
+                    <table>
+                        <tr>
+                            <td>작가</td>
+                            <td>강리라</td>
+                        </tr>
+                        <tr>
+                            <td>장소</td>
+                            <td>토포하우스</td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td>서울 종로구 인사동 11길 6</td>
+                        </tr>
+                        <tr>
+                            <td>시간</td>
+                            <td>9:00 ~ 9:00</td>
+                        </tr>
+                        <tr>
+                            <td>연락처</td>
+                            <td>02-734-7555</td>
+                        </tr>
+                        <tr>
+                            <td>홈페이지</td>
+                            <td><a href="https://www.topohaus.com/">https://www.topohaus.com</a></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    갤러리 가기<br />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.1941620800258!2d126.98431120000001!3d37.57404539999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2c28fd70a77%3A0x53119ab3a07b8e1!2z7ISc7Jq47Yq567OE7IucIOyiheuhnOq1rCDsnbjsgqzrj5kxMeq4uCA2!5e0!3m2!1sko!2skr!4v1686193692932!5m2!1sko!2skr"
+                        width="97%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </details>
+            </fieldset>
+
+            <fieldset class="gallery-item">
+                <details>
+                    <summary>
+                        <table>
+                            <tr>
+                                <td><img id="image2"
+                                        src="http://021gallery.com/data/file/exhibition/thumb-2009682554_TU2cZyIm_c880f403af2bd7e482186d1844222f6ecdf071fe_1500x1000.jpg">
+                                </td>
+                                <td>FOR_REST<br />
+                                    FOR_REST<br />
+                                    <small>황혜진 <br />
+                                        갤러리블라썸 <br />
+
+                                        2023-06-01 ~ 2023-06-29
+                                    </small>
+                                </td>
+                            </tr>
+                        </table>
+                    </summary>
+
+                    <table>
+                        <tr>
+                            <td>작가</td>
+                            <td>황혜진</td>
+                        </tr>
+                        <tr>
+                            <td>장소</td>
+                            <td>갤러리블라썸</td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td>서울 강서구 양천로 65길 41-22(염창동)</td>
+                        </tr>
+                        <tr>
+                            <td>시간</td>
+                            <td>10:00 ~ 18:30</td>
+                        </tr>
+                        <tr>
+                            <td>연락처</td>
+                            <td>010-7542-1250</td>
+                        </tr>
+                        <tr>
+                            <td>홈페이지</td>
+                            <td><a href="http://jkblossom.co.kr/">http://jkblossom.co.kr/</a></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    갤러리 가기<br />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12651.703430019907!2d126.85738777159246!3d37.55681056328625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9c01e74711c3%3A0xf8b21a5b58258d54!2z7ISc7Jq47Yq567OE7IucIOqwleyEnOq1rCDslpHsspzroZw2Neq4uCA0MS0yMg!5e0!3m2!1sko!2skr!4v1686194826463!5m2!1sko!2skr"
+                        width="97%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </details>
+            </fieldset>
+
+
+            <fieldset class="gallery-item">
+                <details>
+                    <summary>
+                        <table>
+                            <tr>
+                                <td><img id="image3"
+                                        src="http://www.insaartcenter.com/udta/20230607-20230613/230607_A01/image/image0.jpg">
+                                </td>
+                                <td>제주갤러리 공모 당선전 양형석 &lt;피정의 섬 제주&gt;<br />
+                                    - <br />
+                                    <small>양형석 <br />
+                                        제주갤러리, 인사이트센터B1 <br />
+
+                                        2023-06-07 ~ 2023-06-19
+                                    </small>
+                                </td>
+                            </tr>
+                        </table>
+                    </summary>
+
+                    <table>
+                        <tr>
+                            <td>작가</td>
+                            <td>양형석</td>
+                        </tr>
+                        <tr>
+                            <td>장소</td>
+                            <td>제주갤러리, 인사이트센터B1</td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td>서울 종로구 인사동길 41-1(관훈동)</td>
+                        </tr>
+                        <tr>
+                            <td>시간</td>
+                            <td>9:00 ~ 9:00</td>
+                        </tr>
+                        <tr>
+                            <td>연락처</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>홈페이지</td>
+                            <td><a href="http://www.insaartcenter.com/">http://www.insaartcenter.com</a></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    갤러리 가기<br />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12648.801045792554!2d126.97430947160156!3d37.57390175931304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2c29a0d0073%3A0xc0e462042ac28da9!2z7ISc7Jq47Yq567OE7IucIOyiheuhnOq1rCDsnbjsgqzrj5nquLggNDEtMQ!5e0!3m2!1sko!2skr!4v1686194805278!5m2!1sko!2skr"
+                        width="97%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </details>
+            </fieldset>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: right;">Instagram &nbsp; Facebook &nbsp; Twitter</p>
+        <p style=" font-family: Impact, Haettenschweiler, 'Arial Narrow Bold' , sans-serif;">ARS</p>
+        <hr>
+        COUSTOMER SERVICE <br />
+        02-0000-0000<br /><br />
+        <small>평일 AM 9:00 ~ PM 06:00(주말, 공휴일 휴무)</small><br />
+        <small>email: </small>*******@gmail.com
+        Online Inquiry<br /><br />
+        <small>궁금하신사항은문의글에남겨주시면<br />
+            빠른답변드리겠습니다.</small>
+        <small>(주)***사<br /> 대표: 김00 <br /> 사업자번호: 0000-00-0000 <br /> 주소: 서울특별시 00구 000로 000 <br /> 대표전화:
+            02-0000-0000 <br /><br />
+            회사 소개 고객센터 개인정보처리방침 이용약관
+        </small>
+    </footer>
+</body>
+
+</html>
